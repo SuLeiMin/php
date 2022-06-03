@@ -34,6 +34,7 @@
             $('[data-toggle="tooltip"]').tooltip();   
         });
     </script>
+
 </head>
 <body>
     <div class="wrapper">
@@ -56,7 +57,7 @@
                                 echo "<thead>";
                                     echo "<tr>";
                                         echo "<th>番</th>";
-                                        echo "<th>　日　　　</th>";
+                                        
                                         echo "<th>名前</th>";
                                         echo "<th>住所</th>";
                                         echo "<th>給料</th>";
@@ -67,7 +68,7 @@
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . date("$w 曜日"). "</td>";
+                                       
                                         echo "<td>" . $row['name'] . "</td>";
                                         echo "<td>" . $row['address'] . "</td>";
                                         echo "<td>" . $row['salary'] . "</td>";

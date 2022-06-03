@@ -12,19 +12,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $input_name = trim($_POST["name"]);
     if(empty($input_name)){
         $name_err = "Please enter a name.";
-    } elseif(!filter_var($input_name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $name_err = "Please enter a valid name.";
     } else{
         $name = $input_name;
     }
     
     // Validate address
-    $input_address = trim($_POST["address"]);
+    /*$input_address = trim($_POST["address"]);
     if(empty($input_address)){
         $address_err = "Please enter an address.";     
     } else{
         $address = $input_address;
-    }
+    }*/
     
     // Validate salary
     $input_salary = trim($_POST["salary"]);
@@ -75,6 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Create Record</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
     <style>
         .wrapper{
             width: 600px;
@@ -97,20 +96,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
                         <div class="form-group">
                             <label>Address</label>
-                            <textarea name="address" class="form-control <?php echo (!empty($address_err)) ? 'is-invalid' : ''; ?>"><?php echo $address; ?></textarea>
-                            <span class="invalid-feedback"><?php echo $address_err;?></span>
+                            <input type="text" name="address" class="form-control <?php echo (!empty($address_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $address; ?>">
+                            <span class="invalid-feedback"><?php echo $name_err;?></span>
                         </div>
                         <div class="form-group">
                             <label>Salary</label>
                             <input type="text" name="salary" class="form-control <?php echo (!empty($salary_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $salary; ?>">
                             <span class="invalid-feedback"><?php echo $salary_err;?></span>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
+                        
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                            <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
                     </form>
                 </div>
             </div>        
         </div>
     </div>
+   
 </body>
 </html>
